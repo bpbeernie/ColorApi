@@ -10,5 +10,5 @@ services:
       - "1433:1433"
   color-api:
     build: .
-    port:
+    ports:
       - "8080:80"
