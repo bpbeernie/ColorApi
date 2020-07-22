@@ -43,8 +43,9 @@ namespace ColourAPI
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            
             app.UseMvc();
+
+            PrepDB.PrepPopulation(app);
         }
     }
 }
