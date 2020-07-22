@@ -10,5 +10,11 @@ services:
       - "1433:1433"
   color-api:
     build: .
+    environment:
+      DBServer: "ms-sql-server"
+      DBPort: "1433"
+      DBUser: "SA"
+      DBPassword: "Password123_"
+      Database: "Colors"
     ports:
       - "8080:80"
