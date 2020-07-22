@@ -37,7 +37,7 @@ namespace ColourAPI
             options.UseSqlServer(
                 $"Server={server},{port};Initial Catalog={database};User ID={user};Password={password}"));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         
