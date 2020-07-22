@@ -35,6 +35,8 @@ namespace ColourAPI.Models
                     new Color() { ColorName = "Green" },
                     new Color() { ColorName = "Blue" }
                 );
+
+                context.SaveChanges();
             } 
             else
             {
