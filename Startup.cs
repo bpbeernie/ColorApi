@@ -30,7 +30,7 @@ namespace ColourAPI
             var server = Configuration["DBServer"];
             var port = Configuration["DBPort"];
             var user = Configuration["DBUser"];
-            var password = Configuration["DBPassword"];
+            var password = Configuration["DBPassword"] ?? "Password123_";
             var database = Configuration["Database"];
 
             services.AddDbContext<ColorContext>(options => 
