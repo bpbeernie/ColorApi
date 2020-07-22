@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using ColourAPI.Models;
 
 namespace ColourAPI
 {
@@ -25,6 +27,16 @@ namespace ColourAPI
         
         public void ConfigureServices(IServiceCollection services)
         {
+            var server = Configuration["DBServer"] ?? "localhost";
+            var port = Configuration["DBPort"] ?? "1433";
+            var user = Configuration["DBUser"] ?? "SA";
+            var password = Configuration["DBPassword"] ?? "Password123_";
+            var database = Configuration["Database"] ?? "Colors";
+
+            services.AddDbContext<ColorContext>(options => 
+            options.UseSqlServer(
+                $"Server={server},{port};Initial Catalog={database};User ID={user};Password={password}"));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
